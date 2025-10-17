@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+environement{
+     URI = 'https://github.com/Koll19741981/formationjenkins.git'
+     CREDENTIALS_ID = 'Koll19741981-to-use'
+}
     stages {
         stage('build') {
             steps {
@@ -10,8 +13,12 @@ pipeline {
                 $class: 'GitSCM',
                 branches: [[name: '*/main']],
                 userRemoteConfigs: [[
-                    url: 'https://github.com/Koll19741981/formationjenkins.git',
-                    credentialsId: 'Koll19741981-to-use'
+                    //url: 'https://github.com/Koll19741981/formationjenkins.git',
+                    //credentialsId: 'Koll19741981-to-use'
+                    url: "${URI}",
+                    credentialsId: "${CREDENTIALS_ID}"
+                    
+
                 ]]
               ])
               echo  " Cloner le projet"
