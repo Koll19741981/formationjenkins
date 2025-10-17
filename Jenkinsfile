@@ -14,6 +14,7 @@ pipeline {
                     credentialsId: 'Koll19741981-to-use'
                 ]]
               ])
+              echo  " Cloner le projet"
             }
         }
         
