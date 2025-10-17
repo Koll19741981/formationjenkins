@@ -79,5 +79,24 @@ pipeline {
         }
 
         }
+        post
+        {
+          always {
+            sh "echo tout le temps"
+
+          }
+          succes {
+            sh "echo succes"
+
+          }
+          failure {
+             sh "echo failure"
+
+          }
+
+
+        }
+
+
     
 }
