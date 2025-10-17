@@ -4,6 +4,10 @@ pipeline {
      URL_GIT = 'https://github.com/Koll19741981/formationjenkins.git'
      CREDENTIALS_ID = 'Koll19741981-to-use'
 }
+    parameters {
+              string( name: "version", description:" Environement sur  lequel  je deploye"    )
+              choice( name: "environnement",  choices: [ "test","prepord","prod"],description:" Environement "    )
+        }
     stages {
         stage('build') {
             steps {
@@ -25,10 +29,7 @@ pipeline {
               sh "printenv"
             }
         }
-        parameters {
-              string( name: "version", description:" Environement sur  lequel  je deploye"    )
-              choice( name: "environnement",  choices: [ "test","prepord","prod"],description:" Environement "    )
-        }
+      
         
          stage('test') {
             steps {
