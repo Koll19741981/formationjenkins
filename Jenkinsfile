@@ -48,12 +48,36 @@ pipeline {
         }
         
         
-        stage('deploy') {
-            steps {
-                sh 'chmod +x mvnw'
-                sh './mvnw clean package spring-boot:repackage -Dmaven.test.skip=true'
+        //stage('deploy') {
+            //steps {
+               // sh 'chmod +x mvnw'
+               // sh './mvnw clean package spring-boot:repackage -Dmaven.test.skip=true'
+               //echo "   Environnement ${params.environment}"
                
+
+               
+            //}
+
+           stage('Déploiement sur serveur distant') {
+            steps {
+                echo "Environnement ${params.environment}"
+                sshPublisher(
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: 'training-server',  // correspond au Nom de la configuration
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: 'target/*.jar',
+                                    remoteDirectory: '/',
+                                    execCommand: 'ls -al'
+                                )
+                            ]
+                        )
+                    ]
+                )
             }
+        }
+
         }
     }
 }
