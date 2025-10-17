@@ -1,6 +1,6 @@
 pipeline {
     agent any
-environement{
+    environment {
      URL_GIT = 'https://github.com/Koll19741981/formationjenkins.git'
      CREDENTIALS_ID = 'Koll19741981-to-use'
 }
