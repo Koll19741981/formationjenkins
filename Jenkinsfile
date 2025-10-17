@@ -1,7 +1,7 @@
 pipeline {
     agent any
 environement{
-     URI = 'https://github.com/Koll19741981/formationjenkins.git'
+     URL_GIT = 'https://github.com/Koll19741981/formationjenkins.git'
      CREDENTIALS_ID = 'Koll19741981-to-use'
 }
     stages {
@@ -15,7 +15,7 @@ environement{
                 userRemoteConfigs: [[
                     //url: 'https://github.com/Koll19741981/formationjenkins.git',
                     //credentialsId: 'Koll19741981-to-use'
-                    url: "${URI}",
+                    url: "${URL_GIT}",
                     credentialsId: "${CREDENTIALS_ID}"
                     
 
