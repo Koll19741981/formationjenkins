@@ -21,7 +21,7 @@ pipeline {
          stage('test') {
             steps {
                 sh 'ls -al'
-                sh 'cat server.csv'
+              //  sh 'cat server.csv'
                 //def path= Paths.get("server.csv")
                // script{
 
