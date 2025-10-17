@@ -25,7 +25,10 @@ pipeline {
               sh "printenv"
             }
         }
-        
+        parameters{
+              string( name: "version", description:" Environement sur  lequel  je deploye"    )
+              choice( name: "environnement",  choices: [ "test","prepord","prod"],description:" Environement "    )
+        }
         
          stage('test') {
             steps {
