@@ -22,6 +22,7 @@ pipeline {
                 ]]
               ])
               echo  " Cloner le projet"
+              sh "printenv"
             }
         }
         
