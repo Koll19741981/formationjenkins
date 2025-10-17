@@ -46,9 +46,9 @@ pipeline {
         
         stage('deploy') {
             steps {
-                echo 'connect au serveur'
-                echo 'dowload configuration'
-                 echo 'deploy project'
+                sh 'chmod +x mvnw'
+                sh './mvnw clean package spring-boot:repackage -Dmaven.test.skip=true'
+               
             }
         }
     }
